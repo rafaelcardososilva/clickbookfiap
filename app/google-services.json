@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "150431295263",
+    "project_id": "clickbook-b0eca",
+    "storage_bucket": "clickbook-b0eca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:150431295263:android:2492a042b3799961f4722a",
+        "android_client_info": {
+          "package_name": "br.com.clickbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "150431295263-vb9v4k1hrujomnvo55dedb0128o3oc3i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVAa8Iu36vFT4UP9jT6JuXBom5O0gie4s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "150431295263-vb9v4k1hrujomnvo55dedb0128o3oc3i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
