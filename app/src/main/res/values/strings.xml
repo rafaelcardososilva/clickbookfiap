@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">ClickBook</string>
+    <string name="hello_blank_fragment">Página de Feed</string>
+    <string name="txtTitlePost">Página de Construção</string>
+    <string name="txtAppName">ClickBook</string>
+    <string name="etEmaillogin">E-mail</string>
+    <string name="etPassword">Senha</string>
+    <string name="btnSignIn">Fazer login</string>
+    <string name="txtHasnotSignup">Não tem uma conta?</string>
+    <string name="txtMakeSinup"><u>Cadastre-se</u></string>
+    <string name="title_activity_bottom_navigation">BottomNavigationActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="txtTitleProfile">Perfil</string>
+    <string name="txtEmailProfile">Email</string>
+    <string name="txtNameProfile">Name</string>
+    <string name="btnLogout">Sair</string>
+</resources>
