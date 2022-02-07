@@ -5,6 +5,7 @@ import android.transition.TransitionInflater
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import androidx.fragment.app.viewModels
 import br.com.clickbook.R
 import br.com.clickbook.models.RequestState
@@ -18,6 +19,7 @@ class ProfileFragment: BaseAuthFragment() {
     override val layout = R.layout.fragment_profile
 
     private lateinit var btSignOut: Button
+    private lateinit var tvEmailProfile: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,13 +33,14 @@ class ProfileFragment: BaseAuthFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setUpView(view)
-
         registerObserver()
     }
 
     private fun setUpView(view: View) {
         btSignOut = view.findViewById(R.id.btSignOut)
+        tvEmailProfile = view.findViewById(R.id.tvEmailProfile)
 
+        tvEmailProfile.text = profileViewModel.user?.email
         btSignOut.setOnClickListener {
             profileViewModel.logout()
         }

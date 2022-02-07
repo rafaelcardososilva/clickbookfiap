@@ -5,7 +5,7 @@
     <string name="txtAppName">ClickBook</string>
     <string name="etEmaillogin">E-mail</string>
     <string name="etPassword">Senha</string>
-    <string name="btnSignIn">Fazer login</string>
+    <string name="btSignIn">Fazer login</string>
     <string name="txtHasnotSignup">Não tem uma conta?</string>
     <string name="txtMakeSinup"><u>Cadastre-se</u></string>
     <string name="title_activity_bottom_navigation">BottomNavigationActivity</string>
@@ -15,5 +15,10 @@
     <string name="txtTitleProfile">Perfil</string>
     <string name="txtEmailProfile">Email</string>
     <string name="txtNameProfile">Name</string>
-    <string name="btnLogout">Sair</string>
+    <string name="btLogout">Sair</string>
+    <string name="title_signup">Cadastro</string>
+    <string name="etNameSignup">Nome</string>
+    <string name="etEmailSignup">E-mail</string>
+    <string name="etPasswordAgain">Repita a senha</string>
+    <string name="btSignUp">Cadastrar</string>
 </resources>

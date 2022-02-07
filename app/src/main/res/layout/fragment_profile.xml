@@ -8,45 +8,39 @@
     tools:context=".ui.profile.ProfileFragment">
 
     <TextView
-        android:id="@+id/txtTitleProfile"
+        android:id="@+id/tvTitleProfile"
+        android:text="@string/txtTitleProfile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/title" />
+
+    <TextView
+        android:id="@+id/tvNameProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="140dp"
+        android:text="@string/txtNameProfile"
+        app:layout_constraintStart_toStartOf="@id/tvTitleProfile"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvEmailProfile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
-        android:text="@string/txtTitleProfile"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/txtNameProfile"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/txtNameProfile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="140dp"
-        android:text="@string/txtNameProfile"
-        app:layout_constraintStart_toStartOf="@id/txtTitleProfile"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/txtEmailProfile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="84dp"
         android:text="@string/txtEmailProfile"
-        app:layout_constraintStart_toStartOf="@id/txtNameProfile"
-        app:layout_constraintTop_toTopOf="@id/txtNameProfile" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tvNameProfile"
+        app:layout_constraintTop_toTopOf="@id/tvNameProfile" />
 
     <Button
         android:id="@+id/btSignOut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="172dp"
-        android:layout_marginTop="140dp"
-        android:text="@string/btnLogout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtEmailProfile" />
+        style="@style/button"
+        android:layout_marginBottom="120dp"
+        android:text="@string/btLogout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

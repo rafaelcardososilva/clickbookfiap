@@ -5,6 +5,7 @@ import android.transition.TransitionInflater
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -24,6 +25,7 @@ class LogInFragment: BaseFragment() {
     private lateinit var btLogin: Button
     private lateinit var etEmailLogin: EditText
     private lateinit var etPasswordLogin: EditText
+    private lateinit var tvNewAccount: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,12 +83,18 @@ class LogInFragment: BaseFragment() {
         btLogin = view.findViewById(R.id.btLogin)
         etEmailLogin = view.findViewById(R.id.etEmailLogin)
         etPasswordLogin = view.findViewById(R.id.etPasswordLogin)
+        tvNewAccount = view.findViewById(R.id.tvNewAccount)
 
         btLogin.setOnClickListener {
+
             loginViewModel.signIn(
                 etEmailLogin.text.toString(),
                 etPasswordLogin.text.toString()
             )
+        }
+
+        tvNewAccount.setOnClickListener {
+            findNavController().navigate(R.id.signUpFragmentNav)
         }
     }
 }

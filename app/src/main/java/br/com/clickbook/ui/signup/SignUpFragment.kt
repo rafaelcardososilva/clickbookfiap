@@ -1,60 +1,71 @@
 package br.com.clickbook.ui.signup
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
+import android.util.Log
 import android.view.View
-import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.fragment.app.viewModels
 import br.com.clickbook.R
+import br.com.clickbook.models.NewUser
+import br.com.clickbook.models.RequestState
+import br.com.clickbook.ui.base.BaseFragment
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class SignUpFragment : BaseFragment() {
+    override val layout = R.layout.fragment_sign_up
 
-/**
- * A simple [Fragment] subclass.
- * Use the [SignUpFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class SignUpFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private val signUpViewModel: SignUpViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+    private lateinit var etNameSignUp: EditText
+    private lateinit var etEmailSignUp: EditText
+    private lateinit var etPasswordSignUp: EditText
+    private lateinit var etPasswordAgainSignUp: EditText
+    private lateinit var btSignUp: Button
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setUpView(view)
+
+        registerObserver()
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sign_up, container, false)
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SignUpFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SignUpFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    private fun registerObserver() {
+        this.signUpViewModel.signUpState.observe(viewLifecycleOwner, Observer {
+            when (it) {
+//                is RequestState.Success -> showSuccess()
+//                is RequestState.Error -> showError(it.throwable)
+                is RequestState.Loading -> showLoading()
             }
+        })
+    }
+
+    private fun setUpView(view: View) {
+        etNameSignUp = view.findViewById(R.id.etNameSignUp)
+        etEmailSignUp = view.findViewById(R.id.etEmailSignUp)
+        etPasswordSignUp = view.findViewById(R.id.etPasswordSignUp)
+        etPasswordAgainSignUp = view.findViewById(R.id.etPasswordAgainSignUp)
+        btSignUp = view.findViewById(R.id.btSignUp)
+        setUpListener()
+    }
+
+    private fun setUpListener() {
+        btSignUp.setOnClickListener {
+            val name = etNameSignUp.text.toString()
+            val email = etEmailSignUp.text.toString()
+            val password = etPasswordSignUp.text.toString()
+            val passwordAgain = etPasswordAgainSignUp.text.toString()
+
+            if (!password.isNullOrEmpty() && password == passwordAgain) {
+                val newUser = NewUser(
+                    name, email, password
+                )
+                signUpViewModel.signUp(newUser)
+            } else {
+                Toast.makeText(getActivity(), "Its a toast!", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }

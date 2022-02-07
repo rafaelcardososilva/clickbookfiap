@@ -25,4 +25,9 @@
         android:name="br.com.clickbook.ui.login.LogInFragment"
         android:label="fragment_log_in"
         tools:layout="@layout/fragment_log_in" />
+    <fragment
+        android:id="@+id/signUpFragmentNav"
+        android:name="br.com.clickbook.ui.signup.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" />
 </navigation>

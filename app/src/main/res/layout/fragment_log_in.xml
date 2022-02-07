@@ -24,51 +24,37 @@
 
     <EditText
         android:id="@+id/etEmailLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="48dp"
-        android:layout_marginEnd="32dp"
-        android:width="280dp"
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:labelFor="@string/etEmaillogin"
-        android:minHeight="48dp"
         android:hint="@string/etEmaillogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        style="@style/editText" />
 
     <EditText
         android:id="@+id/etPasswordLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:width="280dp"
         android:ems="10"
         android:hint="@string/etPassword"
         android:importantForAutofill="no"
         android:inputType="textPassword"
-        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmailLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmailLogin"
+        style="@style/editText" />
 
     <Button
         android:id="@+id/btLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:width="280dp"
-        android:text="@string/btnSignIn"
+        android:text="@string/btSignIn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPasswordLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/etPasswordLogin"
+        style="@style/button" />
 
     <TextView
         android:id="@+id/textView2"
@@ -81,7 +67,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btLogin" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvNewAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
