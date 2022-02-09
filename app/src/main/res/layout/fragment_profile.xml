@@ -15,25 +15,17 @@
         style="@style/title" />
 
     <TextView
-        android:id="@+id/tvNameProfile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="140dp"
-        android:text="@string/txtNameProfile"
-        app:layout_constraintStart_toStartOf="@id/tvTitleProfile"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/tvEmailProfile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="32dp"
         android:text="@string/txtEmailProfile"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/tvNameProfile"
-        app:layout_constraintTop_toTopOf="@id/tvNameProfile" />
+        app:layout_constraintStart_toStartOf="@id/tvTitleProfile"
+        app:layout_constraintTop_toTopOf="@id/tvTitleProfile" />
 
     <Button
         android:id="@+id/btSignOut"

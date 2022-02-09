@@ -3,16 +3,17 @@
     <item
         android:id="@+id/feedFragmentNav"
         android:icon="@drawable/ic_baseline_home_24"
-        android:title="Home" />
+        android:title="Home"
+        android:state_checked="true" />
 
     <item
         android:id="@+id/postFragmentNav"
         android:icon="@drawable/ic_baseline_add_24"
-        android:title="Add photo" />
+        android:title="Publicar foto" />
 
     <item
         android:id="@+id/profileFragmentNav"
         android:icon="@drawable/ic_baseline_person_24"
-        android:title="Profile" />
+        android:title="Perfil" />
 
 </menu>

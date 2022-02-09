@@ -1,17 +1,18 @@
 package br.com.clickbook.ui.signup
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import br.com.clickbook.R
+import br.com.clickbook.extensions.hideKeyboard
 import br.com.clickbook.models.NewUser
 import br.com.clickbook.models.RequestState
 import br.com.clickbook.ui.base.BaseFragment
+import br.com.clickbook.ui.base.auth.NAVIGATION_KEY
 
 class SignUpFragment : BaseFragment() {
     override val layout = R.layout.fragment_sign_up
@@ -35,11 +36,26 @@ class SignUpFragment : BaseFragment() {
     private fun registerObserver() {
         this.signUpViewModel.signUpState.observe(viewLifecycleOwner, Observer {
             when (it) {
-//                is RequestState.Success -> showSuccess()
-//                is RequestState.Error -> showError(it.throwable)
+                is RequestState.Success -> {
+                    showSuccess()
+                }
+                is RequestState.Error -> {
+                    hideLoading()
+                    showMessage(it.throwable.message)
+                }
                 is RequestState.Loading -> showLoading()
             }
         })
+    }
+
+    private fun showSuccess() {
+        hideLoading()
+        val navIdFromArguments = arguments?.getInt(NAVIGATION_KEY)
+        if (navIdFromArguments == null) {
+            findNavController().navigate(R.id.main_nav)
+        } else {
+            findNavController().popBackStack(navIdFromArguments, false)
+        }
     }
 
     private fun setUpView(view: View) {
@@ -53,6 +69,8 @@ class SignUpFragment : BaseFragment() {
 
     private fun setUpListener() {
         btSignUp.setOnClickListener {
+            hideKeyboard()
+
             val name = etNameSignUp.text.toString()
             val email = etEmailSignUp.text.toString()
             val password = etPasswordSignUp.text.toString()
@@ -64,7 +82,7 @@ class SignUpFragment : BaseFragment() {
                 )
                 signUpViewModel.signUp(newUser)
             } else {
-                Toast.makeText(getActivity(), "Its a toast!", Toast.LENGTH_SHORT).show()
+                showMessage("As senhas precisam ser iguais!")
             }
         }
     }

@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import br.com.clickbook.R
 import br.com.clickbook.exceptions.EmailInvalidException
 import br.com.clickbook.exceptions.PasswordInvalidException
+import br.com.clickbook.extensions.hideKeyboard
 import br.com.clickbook.models.RequestState
 import br.com.clickbook.ui.base.BaseFragment
 import br.com.clickbook.ui.base.auth.NAVIGATION_KEY
@@ -86,6 +87,7 @@ class LogInFragment: BaseFragment() {
         tvNewAccount = view.findViewById(R.id.tvNewAccount)
 
         btLogin.setOnClickListener {
+            hideKeyboard()
 
             loginViewModel.signIn(
                 etEmailLogin.text.toString(),
