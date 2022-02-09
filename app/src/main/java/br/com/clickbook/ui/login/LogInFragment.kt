@@ -16,7 +16,6 @@ import br.com.clickbook.extensions.hideKeyboard
 import br.com.clickbook.models.RequestState
 import br.com.clickbook.ui.base.BaseFragment
 import br.com.clickbook.ui.base.auth.NAVIGATION_KEY
-import br.com.heiderlopes.calculaflex.ui.login.LoginViewModel
 
 class LogInFragment: BaseFragment() {
     override val layout = R.layout.fragment_log_in
