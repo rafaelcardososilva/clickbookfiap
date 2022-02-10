@@ -14,7 +14,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 class SignUpViewModel: ViewModel() {
 
     private var mAuth: FirebaseAuth = FirebaseAuth.getInstance()
-    private val db = FirebaseFirestore.getInstance()
 
     val signUpState = MutableLiveData<RequestState<FirebaseUser>>()
 
