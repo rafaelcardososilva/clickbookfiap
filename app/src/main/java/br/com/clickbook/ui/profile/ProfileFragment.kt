@@ -47,7 +47,7 @@ class ProfileFragment: BaseAuthFragment() {
     }
 
     private fun registerObserver() {
-        this.profileViewModel.loginState.observe(viewLifecycleOwner, Observer {
+        this.profileViewModel.loginState.observe(viewLifecycleOwner, {
             when (it) {
                 is RequestState.Success -> {
                     hideLoading()
