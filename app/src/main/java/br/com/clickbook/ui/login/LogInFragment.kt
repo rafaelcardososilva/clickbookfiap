@@ -42,7 +42,7 @@ class LogInFragment: BaseFragment() {
     }
 
     private fun registerObserver() {
-        this.loginViewModel.loginState.observe(viewLifecycleOwner, Observer {
+        this.loginViewModel.loginState.observe(viewLifecycleOwner, {
             when (it) {
                 is RequestState.Success -> showSuccess()
                 is RequestState.Error -> showError(it.throwable)
