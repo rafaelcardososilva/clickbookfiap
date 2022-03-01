@@ -7,23 +7,23 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.clickbook.R
+import br.com.clickbook.ui.feed.FeedFragment
 
-class PostAdapter(private val dataSet: ArrayList<Post>) :
+class PostAdapter(private val dataSet: ArrayList<Post>, postLikedCallback: PostLikedCallback) :
     RecyclerView.Adapter<PostAdapter.ViewHolder>() {
 
-    /**
-     * Provide a reference to the type of views that you are using
-     * (custom ViewHolder).
-     */
+    var mPostLikedCallback: PostLikedCallback? = postLikedCallback
+
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-            val authorImage: ImageView = view.findViewById(R.id.authorImage)
-            val authorName: TextView = view.findViewById(R.id.authorName)
-            val postDate: TextView = view.findViewById(R.id.postDate)
-            val categoryName: TextView = view.findViewById(R.id.categoryName)
-            val postImage: ImageView = view.findViewById(R.id.postImage)
-            val likeButton: ImageView = view.findViewById(R.id.likeButton)
-            val likeNumber: TextView = view.findViewById(R.id.likeNumber)
-            val postText: TextView = view.findViewById(R.id.postText)
+
+        val authorImage: ImageView = view.findViewById(R.id.authorImageView)
+        val authorName: TextView = view.findViewById(R.id.authorName)
+        val postDate: TextView = view.findViewById(R.id.postDate)
+        val categoryName: TextView = view.findViewById(R.id.categoryName)
+        val postImage: ImageView = view.findViewById(R.id.postImage)
+        val likeButton: ImageView = view.findViewById(R.id.likeButton)
+        val likeNumber: TextView = view.findViewById(R.id.likeNumber)
+        val postText: TextView = view.findViewById(R.id.postText)
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
@@ -43,14 +43,14 @@ class PostAdapter(private val dataSet: ArrayList<Post>) :
         viewHolder.postDate.text = dataSet[position].postDate
 
         viewHolder.likeButton.setOnClickListener {
-            //clicou no like, passar essa ação pro fragment para ele acionar o ViewModel para registrar o like
+            mPostLikedCallback?.liked(position)
         }
 
         viewHolder.likeNumber.text = dataSet[position].likeNumber
         viewHolder.postText.text = dataSet[position].postText
     }
 
-    private fun loadImages(){
+    private fun loadImages() {
         //usar Glide para carregar as imagens guardadas no firebase? Criar método separado,
         //vai ter que chamar algum método do View Model através do Fragment
         //viewHolder.authorImage.setImageResource()
@@ -58,5 +58,9 @@ class PostAdapter(private val dataSet: ArrayList<Post>) :
     }
 
     override fun getItemCount() = dataSet.size
+
+    interface PostLikedCallback {
+        fun liked(post: Int)
+    }
 
 }

@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/postFragment"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="15dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/imageArea"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/post_border"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -27,6 +26,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                android:id="@+id/authorImageView"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="#CCCCCC" />
@@ -110,7 +110,7 @@
         android:text="@string/mockText"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/likeButton" />
+        app:layout_constraintTop_toBottomOf="@id/likeButton"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
