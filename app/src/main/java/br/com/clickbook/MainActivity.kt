@@ -22,10 +22,6 @@ class MainActivity : AppCompatActivity() {
     private fun fullScreen() {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         supportActionBar?.hide()
-        this.window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        );
     }
 
     private fun setBottomNavigation() {

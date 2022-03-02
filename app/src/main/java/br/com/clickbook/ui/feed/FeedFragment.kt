@@ -24,7 +24,7 @@ class FeedFragment : BaseAuthFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setUpView(view)
+//        setUpView(view)
         registerObserver()
     }
 
