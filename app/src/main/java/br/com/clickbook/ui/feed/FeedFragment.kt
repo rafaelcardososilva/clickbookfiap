@@ -27,6 +27,7 @@ class FeedFragment : BaseAuthFragment(), PostAdapter.PostLikedCallback {
         super.onViewCreated(view, savedInstanceState)
 
         setUpView(view)
+        registerObserver()
     }
 
     @SuppressLint("NotifyDataSetChanged")
