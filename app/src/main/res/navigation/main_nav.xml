@@ -10,11 +10,12 @@
         android:name="br.com.clickbook.ui.feed.FeedFragment"
         android:label="fragment_feed"
         tools:layout="@layout/fragment_feed" />
-<!--    <fragment-->
-<!--        android:id="@+id/postFragmentNav"-->
-<!--        android:name="br.com.clickbook.ui.post.PostFragment"-->
-<!--        android:label="fragment_post"-->
-<!--        tools:layout="@layout/post_cell" />-->
+
+   <fragment
+       android:id="@+id/postFragmentNav"
+       android:name="br.com.clickbook.ui.post.PostFragment"
+       android:label="fragment_post"
+       tools:layout="@layout/post_cell" />
     <fragment
         android:id="@+id/profileFragmentNav"
         android:name="br.com.clickbook.ui.profile.ProfileFragment"

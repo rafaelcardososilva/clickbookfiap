@@ -1,6 +1,5 @@
 package br.com.clickbook.ui.profile
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.clickbook.models.RequestState
